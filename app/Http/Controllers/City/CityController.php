@@ -9,7 +9,7 @@ use App\Models\CityModel;
 
 class CityController extends Controller
 {
-    public function city(){
+    public function findAll(){
         return response()->json(CityModel::get(), 200);
     }
 }

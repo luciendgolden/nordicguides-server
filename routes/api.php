@@ -17,5 +17,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('cities', 'City\CityController@city');
-Route::get('members', 'Member\MemberController@member');
+Route::get('cities', 'City\CityController@findAll');
+
+Route::get('members', 'Member\MemberController@findAll');
+Route::get('members/{id}', 'Member\MemberController@findById');
+Route::get('members/city/{id}', 'Member\MemberController@showListOfGuidesInCity');
+
+Route::get('memberlanguages', 'Languages\MemberLanguagesController@findAll');
+Route::get('memberlanguages/{memberId}', 'Languages\MemberLanguagesController@findById');
+
+Route::get('group', 'Group\GroupController@findAll');
+Route::get('group/{memberId}', 'Group\GroupController@getMemberGroupByMemberId');
+
+Route::get('membergroup', 'Group\MemberGroupController@findAll');
